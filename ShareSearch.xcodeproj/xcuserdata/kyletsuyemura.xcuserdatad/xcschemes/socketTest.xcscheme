@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
-               BuildableName = "socketTest.app"
-               BlueprintName = "socketTest"
-               ReferencedContainer = "container:socketTest.xcodeproj">
+               BuildableName = "ShareSearch.app"
+               BlueprintName = "ShareSearch"
+               ReferencedContainer = "container:ShareSearch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA730C301D3FE4E80068B57B"
-               BuildableName = "socketTestTests.xctest"
-               BlueprintName = "socketTestTests"
-               ReferencedContainer = "container:socketTest.xcodeproj">
+               BuildableName = "ShareSearch.xctest"
+               BlueprintName = "ShareSearchTests"
+               ReferencedContainer = "container:ShareSearch.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA730C3B1D3FE4E80068B57B"
-               BuildableName = "socketTestUITests.xctest"
-               BlueprintName = "socketTestUITests"
-               ReferencedContainer = "container:socketTest.xcodeproj">
+               BuildableName = "ShareSearch.xctest"
+               BlueprintName = "ShareSearchUITests"
+               ReferencedContainer = "container:ShareSearch.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
-            BuildableName = "socketTest.app"
-            BlueprintName = "socketTest"
-            ReferencedContainer = "container:socketTest.xcodeproj">
+            BuildableName = "ShareSearch.app"
+            BlueprintName = "ShareSearch"
+            ReferencedContainer = "container:ShareSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
-            BuildableName = "socketTest.app"
-            BlueprintName = "socketTest"
-            ReferencedContainer = "container:socketTest.xcodeproj">
+            BuildableName = "ShareSearch.app"
+            BlueprintName = "ShareSearch"
+            ReferencedContainer = "container:ShareSearch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
-            BuildableName = "socketTest.app"
-            BlueprintName = "socketTest"
-            ReferencedContainer = "container:socketTest.xcodeproj">
+            BuildableName = "ShareSearch.app"
+            BlueprintName = "ShareSearch"
+            ReferencedContainer = "container:ShareSearch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        UINavigationBar.appearance().backgroundColor = UIColor(red:0.11, green:0.44, blue:0.52, alpha:1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 29.0/255.0, green: 113.0/255.0, blue: 132.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes  = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         return true
     }
     
@@ -70,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             
-            dict[NSUnderlyingErrorKey] = error as NSError
+            dict[NSUnderlyingErrorKey] = error as! NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -104,4 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+//    func removeWindowController(windowController: ChatController) {
+//        var index = find(windowControllers, windowController)
+//        if index != nil {
+//            windowControllers.removeAtIndex(index!)
+//        }
+//    }
 }

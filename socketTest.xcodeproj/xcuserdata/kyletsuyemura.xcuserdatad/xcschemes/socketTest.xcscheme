@@ -17,7 +17,7 @@
                BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
                BuildableName = "ShareSearch.app"
                BlueprintName = "ShareSearch"
-               ReferencedContainer = "container:ShareSearch.xcodeproj">
+               ReferencedContainer = "container:socketTest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "AA730C301D3FE4E80068B57B"
                BuildableName = "ShareSearch.xctest"
                BlueprintName = "ShareSearchTests"
-               ReferencedContainer = "container:ShareSearch.xcodeproj">
+               ReferencedContainer = "container:socketTest.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "AA730C3B1D3FE4E80068B57B"
                BuildableName = "ShareSearch.xctest"
                BlueprintName = "ShareSearchUITests"
-               ReferencedContainer = "container:ShareSearch.xcodeproj">
+               ReferencedContainer = "container:socketTest.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
             BuildableName = "ShareSearch.app"
             BlueprintName = "ShareSearch"
-            ReferencedContainer = "container:ShareSearch.xcodeproj">
+            ReferencedContainer = "container:socketTest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
             BuildableName = "ShareSearch.app"
             BlueprintName = "ShareSearch"
-            ReferencedContainer = "container:ShareSearch.xcodeproj">
+            ReferencedContainer = "container:socketTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "AA730C1C1D3FE4E70068B57B"
             BuildableName = "ShareSearch.app"
             BlueprintName = "ShareSearch"
-            ReferencedContainer = "container:ShareSearch.xcodeproj">
+            ReferencedContainer = "container:socketTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

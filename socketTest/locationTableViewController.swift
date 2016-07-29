@@ -26,6 +26,7 @@ class locationTableViewController: UITableViewController{
             print("\(error)")
         }
         self.tableView.reloadData()
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:"load", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
         if manager.deviceMotionAvailable {
             manager.deviceMotionUpdateInterval = 0.02
@@ -39,10 +40,20 @@ class locationTableViewController: UITableViewController{
         }
         
     }
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
     }
+    
+//    override func viewWillDisappear(animated: Bool) {
+//        NSNotificationCenter.defaultCenter().removeObserver(self)
+//        super.viewWillDisappear(animated)
+//    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // dequeue the cell from our storyboard
@@ -84,6 +95,7 @@ class locationTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         print("accessory tapped")
         let myDict = locations[indexPath.row]
+        print(myDict)
         NSNotificationCenter.defaultCenter().postNotificationName("history", object: myDict)
         self.tabBarController?.selectedIndex = 0
     }

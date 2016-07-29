@@ -7,21 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1580459294E5319E6AC774DD /* Pods_socketTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AEC5E1881E743EB7C8CC77 /* Pods_socketTest.framework */; };
+		0AB994AF72761E3E197B4715 /* Pods_ShareSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6660E155075EBE518DEF67 /* Pods_ShareSearch.framework */; };
+		1580459294E5319E6AC774DD /* Pods_socketTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AEC5E1881E743EB7C8CC77 /* Pods_socketTest.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		70703A882BC8E2389E60FF81 /* Pods_socketTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739319658B69B6E7DCB2EF86 /* Pods_socketTestTests.framework */; };
+		83DC19D2E507FF363193F2DD /* Pods_ShareSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1750902E722D08242520E2 /* Pods_ShareSearchUITests.framework */; };
 		85E9BAB2589C743FD4BD081F /* Pods_socketTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D78717EE9AC5EDE27855C9 /* Pods_socketTestUITests.framework */; };
+		AA2BD2851D48551400C52717 /* MapViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2BD2841D48551400C52717 /* MapViewControllerDelegate.swift */; };
+		AA2BD2871D488AC400C52717 /* NewRoomTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2BD2861D488AC400C52717 /* NewRoomTableController.swift */; };
+		AA2BD2891D488B7C00C52717 /* newRoomTableControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2BD2881D488B7C00C52717 /* newRoomTableControllerDelegate.swift */; };
+		AA3547B91D481D3C0029A45D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547B81D481D3C0029A45D /* LoginViewController.swift */; };
+		AA3547BD1D48311E0029A45D /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547BC1D48311E0029A45D /* userModel.swift */; };
+		AA3547BF1D4846EE0029A45D /* RoomTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547BE1D4846EE0029A45D /* RoomTableController.swift */; };
+		AA3547C11D48478B0029A45D /* RoomTableControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547C01D48478B0029A45D /* RoomTableControllerDelegate.swift */; };
+		AA3547C31D4849B30029A45D /* CancelButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547C21D4849B30029A45D /* CancelButtonDelegate.swift */; };
+		AA4C91291D4A6D7C00EFF613 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4C91281D4A6D7C00EFF613 /* RegisterViewController.swift */; };
+		AA657F5D1D4A7C2000EC3196 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA657F5C1D4A7C2000EC3196 /* AddUserViewController.swift */; };
 		AA730C211D3FE4E70068B57B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA730C201D3FE4E70068B57B /* AppDelegate.swift */; };
-		AA730C231D3FE4E70068B57B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA730C221D3FE4E70068B57B /* ViewController.swift */; };
+		AA730C231D3FE4E70068B57B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA730C221D3FE4E70068B57B /* MapViewController.swift */; };
 		AA730C261D3FE4E70068B57B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA730C241D3FE4E70068B57B /* Main.storyboard */; };
 		AA730C281D3FE4E70068B57B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA730C271D3FE4E70068B57B /* Assets.xcassets */; };
 		AA730C2B1D3FE4E80068B57B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA730C291D3FE4E80068B57B /* LaunchScreen.storyboard */; };
 		AA730C361D3FE4E80068B57B /* socketTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA730C351D3FE4E80068B57B /* socketTestTests.swift */; };
 		AA730C411D3FE4E80068B57B /* socketTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA730C401D3FE4E80068B57B /* socketTestUITests.swift */; };
+		AA7A75C41D493E470001928E /* titleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A75C31D493E470001928E /* titleViewController.swift */; };
+		AA7A75C61D4955560001928E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A75C51D4955560001928E /* ChatViewController.swift */; };
+		AA7A75CC1D4968D70001928E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A75CB1D4968D70001928E /* CustomCell.swift */; };
 		AA89D71D1D40205F00D4CC20 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89D71C1D40205F00D4CC20 /* Location.swift */; };
+		AABD1D721D49B7D100398015 /* chatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABD1D711D49B7D100398015 /* chatController.swift */; };
 		AAD4A09D1D407760009DF249 /* Place.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAD4A09B1D407760009DF249 /* Place.xcdatamodeld */; };
 		AAD4A0A01D407794009DF249 /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4A09E1D407794009DF249 /* Place+CoreDataProperties.swift */; };
 		AAD4A0A11D407794009DF249 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4A09F1D407794009DF249 /* Place.swift */; };
 		AAF7387D1D4068E500565F1B /* locationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7387C1D4068E500565F1B /* locationTableViewController.swift */; };
+		C0D4ECC0E47D119E6A0CD845 /* Pods_ShareSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B85C3CFEC6CE3351A16876 /* Pods_ShareSearchTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,14 +60,28 @@
 
 /* Begin PBXFileReference section */
 		1936746E0DEC6E75A2CC4F37 /* Pods-socketTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socketTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socketTestTests/Pods-socketTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		33B15B147E58731E0660DB2A /* Pods-ShareSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareSearch/Pods-ShareSearch.release.xcconfig"; sourceTree = "<group>"; };
+		3D0F121114AB40D7DD2A95A9 /* Pods-ShareSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareSearchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareSearchTests/Pods-ShareSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		404520C622AC8300CBBE26E5 /* Pods-socketTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socketTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socketTestTests/Pods-socketTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		4A6660E155075EBE518DEF67 /* Pods_ShareSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D911517FD0A88D8C2C853F /* Pods-socketTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socketTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socketTestUITests/Pods-socketTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FD302E4F35262B1945320E5 /* Pods-socketTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socketTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-socketTest/Pods-socketTest.release.xcconfig"; sourceTree = "<group>"; };
 		739319658B69B6E7DCB2EF86 /* Pods_socketTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_socketTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		992D15962D4D1596A102BC56 /* Pods-ShareSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareSearchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareSearchTests/Pods-ShareSearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		A23E9709F72E006A85B6C2CE /* Pods-socketTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socketTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socketTest/Pods-socketTest.debug.xcconfig"; sourceTree = "<group>"; };
+		AA2BD2841D48551400C52717 /* MapViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerDelegate.swift; sourceTree = "<group>"; };
+		AA2BD2861D488AC400C52717 /* NewRoomTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRoomTableController.swift; sourceTree = "<group>"; };
+		AA2BD2881D488B7C00C52717 /* newRoomTableControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newRoomTableControllerDelegate.swift; sourceTree = "<group>"; };
+		AA3547B81D481D3C0029A45D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AA3547BC1D48311E0029A45D /* userModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
+		AA3547BE1D4846EE0029A45D /* RoomTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableController.swift; sourceTree = "<group>"; };
+		AA3547C01D48478B0029A45D /* RoomTableControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableControllerDelegate.swift; sourceTree = "<group>"; };
+		AA3547C21D4849B30029A45D /* CancelButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButtonDelegate.swift; sourceTree = "<group>"; };
+		AA4C91281D4A6D7C00EFF613 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		AA657F5C1D4A7C2000EC3196 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		AA730C1D1D3FE4E70068B57B /* ShareSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA730C201D3FE4E70068B57B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA730C221D3FE4E70068B57B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AA730C221D3FE4E70068B57B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AA730C251D3FE4E70068B57B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA730C271D3FE4E70068B57B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA730C2A1D3FE4E80068B57B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,14 +92,23 @@
 		AA730C3C1D3FE4E80068B57B /* ShareSearch.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareSearch.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA730C401D3FE4E80068B57B /* socketTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socketTestUITests.swift; sourceTree = "<group>"; };
 		AA730C421D3FE4E80068B57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7A75C31D493E470001928E /* titleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleViewController.swift; sourceTree = "<group>"; };
+		AA7A75C51D4955560001928E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		AA7A75CB1D4968D70001928E /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		AA89D71C1D40205F00D4CC20 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../Location.swift; sourceTree = "<group>"; };
+		AABD1D711D49B7D100398015 /* chatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatController.swift; sourceTree = "<group>"; };
 		AAD4A09C1D407760009DF249 /* Place.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Place.xcdatamodel; sourceTree = "<group>"; };
 		AAD4A09E1D407794009DF249 /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AAD4A09F1D407794009DF249 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		AAF7387C1D4068E500565F1B /* locationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationTableViewController.swift; sourceTree = "<group>"; };
+		B1B85C3CFEC6CE3351A16876 /* Pods_ShareSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D2A980D3A49B10AF5B775D /* Pods-socketTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socketTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socketTestUITests/Pods-socketTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C5AEC5E1881E743EB7C8CC77 /* Pods_socketTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_socketTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D78717EE9AC5EDE27855C9 /* Pods_socketTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_socketTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D76A146780E937CA10A02799 /* Pods-ShareSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareSearchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareSearchUITests/Pods-ShareSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7B6B9323FBBC2FEBCE94663 /* Pods-ShareSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareSearch/Pods-ShareSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		DA1750902E722D08242520E2 /* Pods_ShareSearchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareSearchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8AD29597A2E5EBA07A8C133 /* Pods-ShareSearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareSearchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareSearchUITests/Pods-ShareSearchUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1580459294E5319E6AC774DD /* Pods_socketTest.framework in Frameworks */,
+				0AB994AF72761E3E197B4715 /* Pods_ShareSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70703A882BC8E2389E60FF81 /* Pods_socketTestTests.framework in Frameworks */,
+				C0D4ECC0E47D119E6A0CD845 /* Pods_ShareSearchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E9BAB2589C743FD4BD081F /* Pods_socketTestUITests.framework in Frameworks */,
+				83DC19D2E507FF363193F2DD /* Pods_ShareSearchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +148,9 @@
 				C5AEC5E1881E743EB7C8CC77 /* Pods_socketTest.framework */,
 				739319658B69B6E7DCB2EF86 /* Pods_socketTestTests.framework */,
 				C8D78717EE9AC5EDE27855C9 /* Pods_socketTestUITests.framework */,
+				4A6660E155075EBE518DEF67 /* Pods_ShareSearch.framework */,
+				B1B85C3CFEC6CE3351A16876 /* Pods_ShareSearchTests.framework */,
+				DA1750902E722D08242520E2 /* Pods_ShareSearchUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,15 +182,29 @@
 		AA730C1F1D3FE4E70068B57B /* socketTest */ = {
 			isa = PBXGroup;
 			children = (
-				AA89D71C1D40205F00D4CC20 /* Location.swift */,
 				AA730C201D3FE4E70068B57B /* AppDelegate.swift */,
-				AA730C221D3FE4E70068B57B /* ViewController.swift */,
-				AAD4A09B1D407760009DF249 /* Place.xcdatamodeld */,
+				AA7A75C31D493E470001928E /* titleViewController.swift */,
+				AA3547B81D481D3C0029A45D /* LoginViewController.swift */,
+				AA3547BE1D4846EE0029A45D /* RoomTableController.swift */,
+				AA3547C01D48478B0029A45D /* RoomTableControllerDelegate.swift */,
+				AA730C221D3FE4E70068B57B /* MapViewController.swift */,
+				AA2BD2841D48551400C52717 /* MapViewControllerDelegate.swift */,
+				AA4C91281D4A6D7C00EFF613 /* RegisterViewController.swift */,
+				AABD1D711D49B7D100398015 /* chatController.swift */,
+				AA657F5C1D4A7C2000EC3196 /* AddUserViewController.swift */,
+				AA7A75C51D4955560001928E /* ChatViewController.swift */,
+				AA2BD2861D488AC400C52717 /* NewRoomTableController.swift */,
 				AAF7387C1D4068E500565F1B /* locationTableViewController.swift */,
+				AA2BD2881D488B7C00C52717 /* newRoomTableControllerDelegate.swift */,
+				AA7A75CB1D4968D70001928E /* CustomCell.swift */,
+				AA3547C21D4849B30029A45D /* CancelButtonDelegate.swift */,
+				AAD4A09B1D407760009DF249 /* Place.xcdatamodeld */,
 				AA730C241D3FE4E70068B57B /* Main.storyboard */,
 				AA730C271D3FE4E70068B57B /* Assets.xcassets */,
 				AA730C291D3FE4E80068B57B /* LaunchScreen.storyboard */,
 				AA730C2C1D3FE4E80068B57B /* Info.plist */,
+				AA3547BC1D48311E0029A45D /* userModel.swift */,
+				AA89D71C1D40205F00D4CC20 /* Location.swift */,
 			);
 			path = socketTest;
 			sourceTree = "<group>";
@@ -176,6 +236,12 @@
 				404520C622AC8300CBBE26E5 /* Pods-socketTestTests.release.xcconfig */,
 				54D911517FD0A88D8C2C853F /* Pods-socketTestUITests.debug.xcconfig */,
 				C1D2A980D3A49B10AF5B775D /* Pods-socketTestUITests.release.xcconfig */,
+				D7B6B9323FBBC2FEBCE94663 /* Pods-ShareSearch.debug.xcconfig */,
+				33B15B147E58731E0660DB2A /* Pods-ShareSearch.release.xcconfig */,
+				3D0F121114AB40D7DD2A95A9 /* Pods-ShareSearchTests.debug.xcconfig */,
+				992D15962D4D1596A102BC56 /* Pods-ShareSearchTests.release.xcconfig */,
+				D76A146780E937CA10A02799 /* Pods-ShareSearchUITests.debug.xcconfig */,
+				E8AD29597A2E5EBA07A8C133 /* Pods-ShareSearchUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -268,7 +334,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AA730C181D3FE4E70068B57B /* Build configuration list for PBXProject "ShareSearch" */;
+			buildConfigurationList = AA730C181D3FE4E70068B57B /* Build configuration list for PBXProject "socketTest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -358,7 +424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socketTest/Pods-socketTest-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShareSearch/Pods-ShareSearch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		36584C13A2EB10ED87306B75 /* [CP] Check Pods Manifest.lock */ = {
@@ -388,7 +454,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socketTestTests/Pods-socketTestTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShareSearchTests/Pods-ShareSearchTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		43F85F72F6E82CDAE6785105 /* [CP] Copy Pods Resources */ = {
@@ -403,7 +469,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socketTestUITests/Pods-socketTestUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShareSearchUITests/Pods-ShareSearchUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		51E04032030386E2DEC336A3 /* [CP] Copy Pods Resources */ = {
@@ -418,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socketTest/Pods-socketTest-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShareSearch/Pods-ShareSearch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5A4C964BF1930FBB37157900 /* [CP] Embed Pods Frameworks */ = {
@@ -433,7 +499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socketTestTests/Pods-socketTestTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShareSearchTests/Pods-ShareSearchTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -443,13 +509,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA730C231D3FE4E70068B57B /* ViewController.swift in Sources */,
+				AA730C231D3FE4E70068B57B /* MapViewController.swift in Sources */,
 				AAD4A0A01D407794009DF249 /* Place+CoreDataProperties.swift in Sources */,
+				AA2BD2891D488B7C00C52717 /* newRoomTableControllerDelegate.swift in Sources */,
+				AA2BD2871D488AC400C52717 /* NewRoomTableController.swift in Sources */,
+				AA657F5D1D4A7C2000EC3196 /* AddUserViewController.swift in Sources */,
+				AA7A75CC1D4968D70001928E /* CustomCell.swift in Sources */,
+				AA3547C31D4849B30029A45D /* CancelButtonDelegate.swift in Sources */,
+				AA7A75C41D493E470001928E /* titleViewController.swift in Sources */,
 				AA89D71D1D40205F00D4CC20 /* Location.swift in Sources */,
+				AA2BD2851D48551400C52717 /* MapViewControllerDelegate.swift in Sources */,
 				AA730C211D3FE4E70068B57B /* AppDelegate.swift in Sources */,
+				AA3547B91D481D3C0029A45D /* LoginViewController.swift in Sources */,
+				AA4C91291D4A6D7C00EFF613 /* RegisterViewController.swift in Sources */,
+				AA3547C11D48478B0029A45D /* RoomTableControllerDelegate.swift in Sources */,
+				AABD1D721D49B7D100398015 /* chatController.swift in Sources */,
+				AA7A75C61D4955560001928E /* ChatViewController.swift in Sources */,
 				AAF7387D1D4068E500565F1B /* locationTableViewController.swift in Sources */,
 				AAD4A0A11D407794009DF249 /* Place.swift in Sources */,
 				AAD4A09D1D407760009DF249 /* Place.xcdatamodeld in Sources */,
+				AA3547BD1D48311E0029A45D /* userModel.swift in Sources */,
+				AA3547BF1D4846EE0029A45D /* RoomTableController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,39 +671,41 @@
 		};
 		AA730C461D3FE4E80068B57B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A23E9709F72E006A85B6C2CE /* Pods-socketTest.debug.xcconfig */;
+			baseConfigurationReference = D7B6B9323FBBC2FEBCE94663 /* Pods-ShareSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = socketTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KyleTsuyemura.socketTest;
 				PRODUCT_NAME = ShareSearch;
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		AA730C471D3FE4E80068B57B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FD302E4F35262B1945320E5 /* Pods-socketTest.release.xcconfig */;
+			baseConfigurationReference = 33B15B147E58731E0660DB2A /* Pods-ShareSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = socketTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KyleTsuyemura.socketTest;
 				PRODUCT_NAME = ShareSearch;
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 		AA730C491D3FE4E80068B57B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1936746E0DEC6E75A2CC4F37 /* Pods-socketTestTests.debug.xcconfig */;
+			baseConfigurationReference = 3D0F121114AB40D7DD2A95A9 /* Pods-ShareSearchTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = socketTestTests/Info.plist;
@@ -636,7 +718,7 @@
 		};
 		AA730C4A1D3FE4E80068B57B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 404520C622AC8300CBBE26E5 /* Pods-socketTestTests.release.xcconfig */;
+			baseConfigurationReference = 992D15962D4D1596A102BC56 /* Pods-ShareSearchTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = socketTestTests/Info.plist;
@@ -649,7 +731,7 @@
 		};
 		AA730C4C1D3FE4E80068B57B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54D911517FD0A88D8C2C853F /* Pods-socketTestUITests.debug.xcconfig */;
+			baseConfigurationReference = D76A146780E937CA10A02799 /* Pods-ShareSearchUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = socketTestUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -661,7 +743,7 @@
 		};
 		AA730C4D1D3FE4E80068B57B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D2A980D3A49B10AF5B775D /* Pods-socketTestUITests.release.xcconfig */;
+			baseConfigurationReference = E8AD29597A2E5EBA07A8C133 /* Pods-ShareSearchUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = socketTestUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -674,7 +756,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA730C181D3FE4E70068B57B /* Build configuration list for PBXProject "ShareSearch" */ = {
+		AA730C181D3FE4E70068B57B /* Build configuration list for PBXProject "socketTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA730C431D3FE4E80068B57B /* Debug */,

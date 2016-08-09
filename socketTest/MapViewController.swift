@@ -21,6 +21,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var roomID: String?
     weak var room: NSDictionary?
     
+    @IBAction func editingDidBegin(sender: UITextField) {
+        self.addressField.placeholder = ""
+    }
+    
+    @IBAction func editingDidEnd(sender: AnyObject) {
+        if self.addressField.text == ""{
+            self.addressField.placeholder = "Enter Address Here"
+        }
+        
+    }
+    
     @IBAction func cancelButtonPressed(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.socket.emit("leaverooms")
@@ -82,6 +93,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         "lat": coordinates.latitude,
                         "lng": coordinates.longitude
                     ]
+                    let parameters: [String: AnyObject] = [
+                        "coords": [
+                            "lat": coordinates.latitude,
+                            "lng": coordinates.longitude
+                        ],
+                        "destination": self.addressField.text!
+                    ]
+                    Alamofire.request(.POST, "http://leforge.co/changeCoords/"+self.roomID!, parameters: parameters, encoding: .JSON)
                     self.socket.emit("coords", address)
                     self.addressField.text = ""
                 }
@@ -116,7 +135,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         print(self.room)
-        
+        self.addressField.placeholder = "Enter Address Here"
         super.viewDidLoad()
         
         

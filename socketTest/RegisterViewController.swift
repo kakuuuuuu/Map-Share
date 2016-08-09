@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 
-class RegisterViewController: UIViewController, CancelButtonDelegate, RoomTableControllerDelegate{
+class RegisterViewController: UIViewController, CancelButtonDelegate, RoomTableControllerDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var emailField: UITextField!
     
@@ -23,7 +23,18 @@ class RegisterViewController: UIViewController, CancelButtonDelegate, RoomTableC
     var user: NSDictionary?
     
     override func viewDidLoad() {
+        self.emailField.delegate = self;
+        self.nameField.delegate = self;
+        self.passwordField.delegate = self;
+        self.confirmField.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
         super.viewDidLoad()
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func submitButtonPressed(sender: UIButton) {

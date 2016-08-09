@@ -19,6 +19,15 @@ class ChatController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newChatField: UITextField!
     
+    @IBAction func editingDidEndMessage(sender: UITextField) {
+        if self.newChatField.text == "" {
+            self.newChatField.placeholder = "Enter message here"
+        }
+    }
+    @IBAction func editingDidBegin(sender: AnyObject) {
+        self.newChatField.placeholder = ""
+    }
+    
     let socket = SocketIOClient(socketURL: NSURL(string: "http://leforge.co")!, options: [.Reconnects(true)])
     
     func dismissKeyboard() {
@@ -26,7 +35,9 @@ class ChatController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     override func viewDidLoad() {
+        self.newChatField.placeholder = "Enter message here"
         super.viewDidLoad()
+
         self.newChatField.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)

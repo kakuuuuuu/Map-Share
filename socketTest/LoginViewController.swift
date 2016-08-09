@@ -20,25 +20,28 @@ class LoginViewController: UIViewController, CancelButtonDelegate, RoomTableCont
     
     @IBOutlet weak var passwordField: UITextField!
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
+    @IBOutlet weak var loginButton: UIButton!
+    
+    func setDefaults(){
         if let email = prefs.stringForKey("email"){
             self.emailField.text = email
         }
         if let password = prefs.stringForKey("password"){
             self.passwordField.text = password
         }
-                
+
+    }
+    
+    override func viewDidLoad() {
+        setDefaults()
+        loginButton.layer.cornerRadius = 7
+        super.viewDidLoad()
+        
     }
     override func viewDidAppear(animated: Bool) {
+        setDefaults()
         super.viewDidAppear(animated)
-        if let email = prefs.stringForKey("email"){
-            self.emailField.text = email
-        }
-        if let password = prefs.stringForKey("password"){
-            self.passwordField.text = password
-        }
+
     }
     
     @IBAction func submitButtonPressed(sender: AnyObject?) {

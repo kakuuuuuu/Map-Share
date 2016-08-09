@@ -49,6 +49,8 @@ class RoomTableController: UITableViewController, CancelButtonDelegate, MapViewC
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // dequeue the cell from our storyboard
         let cell = tableView.dequeueReusableCellWithIdentifier("roomCell")!
+        cell.tintColor = UIColor(red: 29.0/255.0, green: 113.0/255.0, blue: 132.0/255.0, alpha: 1.0)
+
         // All UITableViewCell objects have a build in textLabel so set it to the model that is corresponding to the row in array
         cell.textLabel?.text = rooms[indexPath.row]["name"] as? String
         // return cell so that Table View knows what to draw in each row

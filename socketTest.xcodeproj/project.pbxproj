@@ -15,6 +15,7 @@
 		AA2BD2851D48551400C52717 /* MapViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2BD2841D48551400C52717 /* MapViewControllerDelegate.swift */; };
 		AA2BD2871D488AC400C52717 /* NewRoomTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2BD2861D488AC400C52717 /* NewRoomTableController.swift */; };
 		AA2BD2891D488B7C00C52717 /* newRoomTableControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2BD2881D488B7C00C52717 /* newRoomTableControllerDelegate.swift */; };
+		AA2E8F8E1D5BE94100F4350F /* Questrial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA2E8F8D1D5BE94100F4350F /* Questrial-Regular.ttf */; };
 		AA3547B91D481D3C0029A45D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547B81D481D3C0029A45D /* LoginViewController.swift */; };
 		AA3547BD1D48311E0029A45D /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547BC1D48311E0029A45D /* userModel.swift */; };
 		AA3547BF1D4846EE0029A45D /* RoomTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3547BE1D4846EE0029A45D /* RoomTableController.swift */; };
@@ -72,6 +73,7 @@
 		AA2BD2841D48551400C52717 /* MapViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AA2BD2861D488AC400C52717 /* NewRoomTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRoomTableController.swift; sourceTree = "<group>"; };
 		AA2BD2881D488B7C00C52717 /* newRoomTableControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newRoomTableControllerDelegate.swift; sourceTree = "<group>"; };
+		AA2E8F8D1D5BE94100F4350F /* Questrial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Questrial-Regular.ttf"; sourceTree = "<group>"; };
 		AA3547B81D481D3C0029A45D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AA3547BC1D48311E0029A45D /* userModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
 		AA3547BE1D4846EE0029A45D /* RoomTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableController.swift; sourceTree = "<group>"; };
@@ -185,20 +187,21 @@
 				AA730C201D3FE4E70068B57B /* AppDelegate.swift */,
 				AA7A75C31D493E470001928E /* titleViewController.swift */,
 				AA3547B81D481D3C0029A45D /* LoginViewController.swift */,
+				AA4C91281D4A6D7C00EFF613 /* RegisterViewController.swift */,
 				AA3547BE1D4846EE0029A45D /* RoomTableController.swift */,
 				AA3547C01D48478B0029A45D /* RoomTableControllerDelegate.swift */,
 				AA730C221D3FE4E70068B57B /* MapViewController.swift */,
 				AA2BD2841D48551400C52717 /* MapViewControllerDelegate.swift */,
-				AA4C91281D4A6D7C00EFF613 /* RegisterViewController.swift */,
 				AABD1D711D49B7D100398015 /* chatController.swift */,
-				AA657F5C1D4A7C2000EC3196 /* AddUserViewController.swift */,
 				AA7A75C51D4955560001928E /* ChatViewController.swift */,
-				AA2BD2861D488AC400C52717 /* NewRoomTableController.swift */,
+				AA657F5C1D4A7C2000EC3196 /* AddUserViewController.swift */,
 				AAF7387C1D4068E500565F1B /* locationTableViewController.swift */,
+				AA2BD2861D488AC400C52717 /* NewRoomTableController.swift */,
 				AA2BD2881D488B7C00C52717 /* newRoomTableControllerDelegate.swift */,
 				AA7A75CB1D4968D70001928E /* CustomCell.swift */,
 				AA3547C21D4849B30029A45D /* CancelButtonDelegate.swift */,
 				AAD4A09B1D407760009DF249 /* Place.xcdatamodeld */,
+				AA2E8F8D1D5BE94100F4350F /* Questrial-Regular.ttf */,
 				AA730C241D3FE4E70068B57B /* Main.storyboard */,
 				AA730C271D3FE4E70068B57B /* Assets.xcassets */,
 				AA730C291D3FE4E80068B57B /* LaunchScreen.storyboard */,
@@ -361,6 +364,7 @@
 			files = (
 				AA730C2B1D3FE4E80068B57B /* LaunchScreen.storyboard in Resources */,
 				AA730C281D3FE4E70068B57B /* Assets.xcassets in Resources */,
+				AA2E8F8E1D5BE94100F4350F /* Questrial-Regular.ttf in Resources */,
 				AA730C261D3FE4E70068B57B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

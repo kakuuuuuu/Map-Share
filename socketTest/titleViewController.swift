@@ -9,8 +9,11 @@
 import UIKit
 
 class TitleViewController: UIViewController{
+    @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
-        self.loginButton.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.6)
+        titleLabel.font = UIFont(name: "Questrial", size: 45)
+        self.loginButton.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.85)
+        self.loginButton.layer.cornerRadius = 10
         super.viewDidLoad()
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
         backgroundImage.image = UIImage(named: "IMG_1972")

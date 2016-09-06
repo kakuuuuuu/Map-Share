@@ -20,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backgroundColor = UIColor(red:0.11, green:0.44, blue:0.52, alpha:1.0)
         UINavigationBar.appearance().barTintColor = UIColor(red: 29.0/255.0, green: 113.0/255.0, blue: 132.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes  = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().titleTextAttributes  = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Questrial", size: 20)!]
         UITabBar.appearance().tintColor = UIColor(red: 29.0/255.0, green: 113.0/255.0, blue: 132.0/255.0, alpha: 1.0)
+        UILabel.appearance().font = UIFont(name: "Questrial", size: 20)!
+        
         return true
     }
     

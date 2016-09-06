@@ -15,51 +15,24 @@ import CoreData
 import CoreMotion
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialize Variables
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // Initialize variables passed by RoomTableController
     weak var cancelButtonDelegate: CancelButtonDelegate?
     weak var delegate: MapViewControllerDelegate?
     weak var user: NSDictionary?
     var roomID: String?
     weak var room: NSDictionary?
     
-    @IBAction func editingDidBegin(sender: UITextField) {
-        self.addressField.placeholder = ""
-    }
-    
-    @IBAction func editingDidEnd(sender: AnyObject) {
-        if self.addressField.text == ""{
-            self.addressField.placeholder = "Enter Address Here"
-        }
-        
-    }
-    
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        self.socket.emit("leaverooms")
-        print("dismiss")
-        cancelButtonDelegate?.cancelButtonPressedFrom(self)
-    }
-    
-    
-    
+    // Initialize included libraries
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let manager = CMMotionManager()
-    
     let socket = SocketIOClient(socketURL: NSURL(string: "http://leforge.co")!, options: [.Reconnects(true)])
     
-    @IBAction func socketSwitched(sender: UISwitch) {
-        if sender.on {
-            socket.connect()
-        }
-        else{
-            socket.disconnect()
-        }
-    }
-    let regionRadius: CLLocationDistance = 1000
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
+    // Initialize Map Variables
     let locationManager = CLLocationManager()
     var source:MKMapItem?
     var destination:MKMapItem?
@@ -70,11 +43,91 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var destMark: MKPlacemark?
     var meet: String?
     var geocoder = CLGeocoder()
-
+    
+    // Initialize UI Map Elements
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressField: UITextField!
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialize Functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // Empty placeholder when editing begins
+    @IBAction func editingDidBegin(sender: UITextField) {
+        self.addressField.placeholder = ""
+    }
+    
+    // Reset address field and replace placeholder
+    @IBAction func editingDidEnd(sender: AnyObject) {
+        if self.addressField.text == ""{
+            self.addressField.placeholder = "Enter Address Here"
+        }
+    }
+    
+    // Dismiss Room View
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        // Exits room on server
+        self.socket.emit("leaverooms")
+        cancelButtonDelegate?.cancelButtonPressedFrom(self)
+    }
+    // Dismiss Room View in response to cancel button on different tab
+    func backbutton(notification: NSNotification){
+        self.socket.emit("leaverooms")
+        cancelButtonDelegate?.cancelButtonPressedFrom(self)
+    }
+    
+    // Turns socket connection on and off
+    // NOTE: All socket data regardless of tabs is sent through this view due to trouble integrating sockets into table views
+    @IBAction func socketSwitched(sender: UISwitch) {
+        if sender.on {
+            socket.connect()
+        }
+        else{
+            socket.disconnect()
+        }
+    }
+    
+    // Saves changes to core data
+    func updateCoreData(){
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+                print("Success")
+            } catch {
+                print("\(error)")
+            }
+        }
+    }
+    
+    // Dismisses Keyboard
+    func dismissKeyboard() {
+        // Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Map Functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // Set Default Map Radius
+    let regionRadius: CLLocationDistance = 1000
+    
+    // Set Default Map Center on current location
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    // Change map on address change
     @IBAction func addressEntered(sender: AnyObject) {
-        
         if addressField.text != "" {
             geocoder.geocodeAddressString(addressField.text!, completionHandler: {(placemarks, error) -> Void in
                 if((error) != nil){
@@ -105,123 +158,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     self.addressField.text = ""
                 }
             })
-
         }
     }
     
-    
-    
+    // Loads location onto map from favorites
     func loadLocation(notification: NSNotification){
         //load data here
         let dict = notification.object as! Place
-        let coord: NSDictionary = ["name": (dict.location! as String), "lat": dict.lat! as! Double, "lng":dict.lng! as! Double]
+        let coord: NSDictionary = ["name": (dict.location! as String), "lat": dict.lat! as Double, "lng":dict.lng! as Double]
         self.drawRoute(coord)
     }
-    func backbutton(notification: NSNotification){
-        self.socket.emit("leaverooms")
-        cancelButtonDelegate?.cancelButtonPressedFrom(self)
-    }
+    
+    // Sends comment data passed from chat view to all connected users
     func sendComment(notification: NSNotification){
         let dict = notification.object as! NSDictionary
         self.socket.emit("sendMessage", dict)
-//        NSNotificationCenter.defaultCenter().removeObserver(self, name:"addComment", object: nil)
     }
     
-//    override func viewWillDisappear(animated: Bool) {
-//        NSNotificationCenter.defaultCenter().removeObserver(self)
-//        super.viewWillDisappear(animated)
-//    }
-//    
-    
-    override func viewDidLoad() {
-        print(self.room)
-        self.addressField.placeholder = "Enter Address Here"
-        super.viewDidLoad()
-        
-        
-        
-        
-
-        
-        if manager.deviceMotionAvailable {
-            manager.deviceMotionUpdateInterval = 0.02
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
-                [weak self] (data: CMDeviceMotion?, error: NSError?) in
-                
-                if data?.userAcceleration.x < -2.5 {
-                    self!.tabBarController?.selectedIndex = 1
-                }
-            }
-        }
-
-        
-        self.addressField.delegate = self;
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        self.socket.connect()
-        self.locationManager.delegate = self
-        self.mapView.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-        self.mapView.showsUserLocation = true
-       
-        
-        
-        
-        
-        socket.on("connect") {data, ack in
-            print("socket connected")
-            let id = self.roomID!
-            self.socket.emit("joinRoom", id)
-        }
-        
-        socket.on("roomJoined") {data, ack in
-            print(data)
-        }
-
-        socket.on("changeCoords") {data, ack in
-            if let coord = data[0] as? NSDictionary{
-                print(coord)
-                self.drawRoute(coord)
-            }
-        }
-        socket.on("broadcastMessage"){data, ack in
-            NSNotificationCenter.defaultCenter().postNotificationName("newcomment", object: data)
-            print("message recieved")
-            self.tabBarController?.selectedIndex = 2
-
-            
-        }
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        print("disappeared")
-        super.viewWillDisappear(animated)
-    }
-    
-//    deinit{
-//        NSNotificationCenter.defaultCenter().removeObserver(self)
-//        NSNotificationCenter.defaultCenter().removeObserver(self, name:"history", object: nil)
-//        NSNotificationCenter.defaultCenter().removeObserver(self, name:"back", object: nil)
-//        NSNotificationCenter.defaultCenter().removeObserver(self, name:"addComment", object: nil)
-//        print("Deinit called")
-//    }
-    
-    override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:"history", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:"back", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:"addComment", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadLocation:",name:"history", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "backbutton:",name:"back", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sendComment:",name:"addComment", object: nil)
-        super.viewWillAppear(animated)
-    }
-    
+    // Attempt to create route from new location
     func drawRoute(coord: NSDictionary){
-        self.meet = coord["name"] as! String
+        self.meet = coord["name"] as? String
         self.meetup = CLLocation(latitude: coord["lat"] as! Double, longitude: coord["lng"] as! Double)
         print(self.meetup)
         self.centerMapOnLocation(self.meetup!)
@@ -232,7 +188,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             coordinate: CLLocationCoordinate2D(latitude:coord["lat"] as! Double, longitude: coord["lng"] as! Double),
             link: "facebook.com"
         )
-        
+        // Set parameters for polyline
         self.destMark = MKPlacemark(coordinate: CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude), addressDictionary: nil)
         self.source = MKMapItem(placemark: self.locMark!)
         self.destination = MKMapItem(placemark: self.destMark!)
@@ -240,57 +196,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.request.destination = self.destination
         self.request.transportType = MKDirectionsTransportType.Automobile
         self.request.requestsAlternateRoutes = true
+        // Request directions based on parameters
         var directions = MKDirections(request: self.request)
         directions.calculateDirectionsWithCompletionHandler({
             (response:MKDirectionsResponse?, error:NSError?) in
             if error == nil{
-                
                 self.plotPolyline(response!.routes[0])
             }
             else{
                 print(error)
             }
         })
+        // Resets Annotations
         self.mapView.removeAnnotations(self.mapView.annotations)
         self.mapView.addAnnotation(location)
-
-    }
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    func plotPolyline(route: MKRoute) {
-        // 1
-        mapView.removeOverlays(mapView.overlays)
-        mapView.addOverlay(route.polyline, level: MKOverlayLevel.AboveRoads)
-        // 2
-        if mapView.overlays.count == 1 {
-            mapView.setVisibleMapRect(route.polyline.boundingMapRect,
-                                      edgePadding: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0),
-                                      animated: false)
-        }
-            // 3
-        else {
-            let polylineBoundingRect =  MKMapRectUnion(mapView.visibleMapRect,
-                                                       route.polyline.boundingMapRect)
-            mapView.setVisibleMapRect(polylineBoundingRect,
-                                      edgePadding: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0),
-                                      animated: false)
-        }
-    }
-    
+    // Set visual parameters for polyline
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
         if let polylineOverlay = overlay as? MKPolyline {
-            
             let render = MKPolylineRenderer(polyline: polylineOverlay)
             render.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.5)
             render.lineWidth = 5.0
@@ -298,7 +222,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         return nil
     }
+    
+    // Sets accessories for destination markers
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        // Ignores current location marker as to not change it
         if (mapView.userLocation === annotation as MKAnnotation)
         {
             return nil;
@@ -311,21 +238,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             } else {
                 view!.annotation = annotation
             }
-            
             view?.leftCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure)
             view?.rightCalloutAccessoryView = UIButton(type: UIButtonType.ContactAdd)
-            //swift 1.2
-            //view?.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
-            
             return view
-
         }
     }
+    
+    // Accessory Functions
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
+        // Prompts user to add location to favorites
         if (control as? UIButton)?.buttonType == UIButtonType.ContactAdd {
             mapView.deselectAnnotation(view.annotation, animated: false)
             let alert = UIAlertController(title: "Save location?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            // Saves location data to Core Data
             var okAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) {
                 UIAlertAction in
                 print("Saved")
@@ -336,6 +261,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.updateCoreData()
                 NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
             }
+            // Cancels dialogue
             var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
                 UIAlertAction in
                 print("Canceled")
@@ -344,15 +270,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             alert.addAction(cancelAction)
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        
+        // Redirects user to Apple Maps for step by step directions
         else if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
-            print("DIRECTIONS")
-            print("http://maps.apple.com/?ll=\((self.meetup?.coordinate.latitude)!),\((self.meetup?.coordinate.longitude)!)")
             UIApplication.sharedApplication().openURL(NSURL(string: "http://maps.apple.com/?daddr=\((self.meetup?.coordinate.latitude)!),\((self.meetup?.coordinate.longitude)!)")!)
         }
     }
-
-
-
+    
+    
+    // Plots polyline route on Map
+    func plotPolyline(route: MKRoute) {
+        mapView.removeOverlays(mapView.overlays)
+        mapView.addOverlay(route.polyline, level: MKOverlayLevel.AboveRoads)
+        if mapView.overlays.count == 1 {
+            mapView.setVisibleMapRect(route.polyline.boundingMapRect,
+                                      edgePadding: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0),
+                                      animated: false)
+        }
+        else {
+            let polylineBoundingRect =  MKMapRectUnion(mapView.visibleMapRect,
+                                                       route.polyline.boundingMapRect)
+            mapView.setVisibleMapRect(polylineBoundingRect,
+                                      edgePadding: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0),
+                                      animated: false)
+        }
+    }
+    
+    // Obtains current location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         let currentLocation = MKPlacemark (coordinate: CLLocationCoordinate2DMake(location!.coordinate.latitude, location!.coordinate.longitude), addressDictionary: nil)
@@ -364,7 +308,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.setRegion(region, animated: true)
         
         self.locationManager.stopUpdatingLocation()
-        Alamofire.request(.GET, "http://leforge.co/getroom/"+(roomID! as! String)).response { (_, _, data, error) in
+        // GET request for current location
+        Alamofire.request(.GET, "http://leforge.co/getroom/"+(roomID!)).response { (_, _, data, error) in
             do {
                 print("FINDING")
                 if let roomData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
@@ -376,7 +321,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                             "lat": self.room!["latitude"]!,
                             "lng": self.room!["longitude"]!
                         ]
-                        print(coord)
+                        // Only draw route on load if there is a location saved in server
                         self.drawRoute(coord)
                     }
                 }
@@ -384,24 +329,91 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 print("Something went wrong")
             }
         }
-        
-
     }
     
+    // Error handler for current location
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
         print("Errors: " + error.localizedDescription)
     }
-    func updateCoreData(){
-        if managedObjectContext.hasChanges {
-            do {
-                try managedObjectContext.save()
-                print("Success")
-            } catch {
-                print("\(error)")
+
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Server Call / Initialize View
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    override func viewDidLoad() {
+        print(self.room)
+        
+        // Sets address field placeholder
+        self.addressField.placeholder = "Enter Address Here"
+        
+        super.viewDidLoad()
+        
+        // Changes view when device is shaken to the left
+        if manager.deviceMotionAvailable {
+            manager.deviceMotionUpdateInterval = 0.02
+            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
+                [weak self] (data: CMDeviceMotion?, error: NSError?) in
+                
+                if data?.userAcceleration.x < -2.5 {
+                    self!.tabBarController?.selectedIndex = 1
+                }
+            }
+        }
+
+        self.addressField.delegate = self;
+        
+        // Dismisses keyboard when tapping screen
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        // Connect sockets
+        self.socket.connect()
+        
+        // Initializes Map variables on view
+        self.locationManager.delegate = self
+        self.mapView.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
+        
+        ////////////////////////////////////
+        // Socket functions
+        ////////////////////////////////////
+        
+        // Attempts to join room on successful connection to server socket
+        socket.on("connect") {data, ack in
+            print("socket connected")
+            let id = self.roomID!
+            self.socket.emit("joinRoom", id)
+        }
+        
+        // Confirm success on joining room
+        socket.on("roomJoined") {data, ack in
+            print(data)
+        }
+        
+        // Change coordinates in response to external address change
+        socket.on("changeCoords") {data, ack in
+            if let coord = data[0] as? NSDictionary{
+                print(coord)
+                self.drawRoute(coord)
             }
         }
         
+        // Adds message in response to external comment
+        socket.on("broadcastMessage"){data, ack in
+            NSNotificationCenter.defaultCenter().postNotificationName("newcomment", object: data)
+            print("message recieved")
+            self.tabBarController?.selectedIndex = 2
+        }
     }
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }
 

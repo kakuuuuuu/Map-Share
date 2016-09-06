@@ -5,8 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Questrial-Regular.ttf">
+            <string>Questrial-Regular</string>
+            <string>Questrial-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Share Search-->
         <scene sceneID="tne-QT-ifu">
@@ -448,7 +453,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2X3-we-EK4">
                                 <rect key="frame" x="446" y="236" width="129" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p0V-s0-hbd">
@@ -519,23 +524,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Rooms" id="KOH-lg-lef">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="d4N-v5-7z7">
-                                <connections>
-                                    <segue destination="WYr-Va-Gjt" kind="presentation" identifier="newRoomSegue" id="n3m-n7-tWy"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Log Out" id="X6B-NR-jSR">
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="gwY-08-GW0" id="E9B-cG-WGQ"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="X6B-NR-jSR">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="gwY-08-GW0" id="E9B-cG-WGQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="d4N-v5-7z7">
+                            <connections>
+                                <segue destination="WYr-Va-Gjt" kind="presentation" identifier="newRoomSegue" id="n3m-n7-tWy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jka-Nj-moZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="369"/>
+            <point key="canvasLocation" x="1488" y="297"/>
         </scene>
         <!--Add Friend-->
         <scene sceneID="veG-gi-u7l">
@@ -629,8 +632,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="89" id="Pk1-1h-wM1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="41"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Questrial-Regular" family="Questrial" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-Rr-Zoe">
@@ -640,8 +643,8 @@
                                     <constraint firstAttribute="height" constant="70" id="IXS-kB-1PN"/>
                                     <constraint firstAttribute="width" constant="150" id="KDh-kJ-JXt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="26"/>
-                                <state key="normal" title="Login">
+                                <fontDescription key="fontDescription" name="Questrial-Regular" family="Questrial" pointSize="26"/>
+                                <state key="normal" title="Get Started">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -659,6 +662,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="91Z-Rr-Zoe" id="IgK-sV-TiT"/>
+                        <outlet property="titleLabel" destination="zDS-m0-bDf" id="4jP-e1-Prv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVL-dc-Txj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,7 +712,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="hV0-3Q-sYc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="4dE-GB-hvH">
                                 <cells>
@@ -806,6 +810,6 @@
         <image name="plus-simple-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="09A-Ty-u2I"/>
+        <segue reference="h4Z-9A-WxV"/>
     </inferredMetricsTieBreakers>
 </document>

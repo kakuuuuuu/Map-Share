@@ -44,23 +44,18 @@ class locationTableViewController: UITableViewController{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
     }
     
-//    override func viewWillDisappear(animated: Bool) {
-//        NSNotificationCenter.defaultCenter().removeObserver(self)
-//        super.viewWillDisappear(animated)
-//    }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // dequeue the cell from our storyboard
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCells")!
         // All UITableViewCell objects have a build in textLabel so set it to the model that is corresponding to the row in array
         cell.textLabel?.text = locations[indexPath.row].location
         // return cell so that Table View knows what to draw in each row
+        cell.textLabel?.font = UIFont(name:"Questrial", size: 18)
         return cell
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

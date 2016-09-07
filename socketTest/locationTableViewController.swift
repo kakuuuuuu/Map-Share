@@ -11,13 +11,28 @@ import CoreData
 import CoreMotion
 
 class locationTableViewController: UITableViewController{
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialize Variables
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // Initialize Core Data
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    // Initialize array of locations
     var locations = [Place]()
+    
+    // Initialize Core Motion library
     let manager = CMMotionManager()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("loaded")
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialize Functions
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // Reloads table when new location is favorited
+    func loadList(notification: NSNotification){
+        //load data here
+        print("reloading")
         let userRequest = NSFetchRequest(entityName: "Place")
         do {
             let results = try managedObjectContext.executeFetchRequest(userRequest)
@@ -26,8 +41,31 @@ class locationTableViewController: UITableViewController{
             print("\(error)")
         }
         self.tableView.reloadData()
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    // Pull Core Data / Initialize View
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Fetches favorites from core data
+        let userRequest = NSFetchRequest(entityName: "Place")
+        do {
+            let results = try managedObjectContext.executeFetchRequest(userRequest)
+            locations = results as! [Place]
+        } catch {
+            print("\(error)")
+        }
+        self.tableView.reloadData()
+        
+        // Removes and resets listener to watch for when user favorites location on Map View
         NSNotificationCenter.defaultCenter().removeObserver(self, name:"load", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
+        
+        // Changes tab back to map view when device is shaken to the left
+        // NOTE: Not calibrated properly and is not reliably working yet
         if manager.deviceMotionAvailable {
             manager.deviceMotionUpdateInterval = 0.02
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
@@ -40,13 +78,11 @@ class locationTableViewController: UITableViewController{
         }
         
     }
-    deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
+   
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    // Table Functions
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
     
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -62,19 +98,6 @@ class locationTableViewController: UITableViewController{
         return locations.count
     }
    
-    
-    func loadList(notification: NSNotification){
-        //load data here
-        print("reloading")
-        let userRequest = NSFetchRequest(entityName: "Place")
-        do {
-            let results = try managedObjectContext.executeFetchRequest(userRequest)
-            locations = results as! [Place]
-        } catch {
-            print("\(error)")
-        }
-        self.tableView.reloadData()
-    }
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -87,6 +110,8 @@ class locationTableViewController: UITableViewController{
             
         }
     }
+    
+    // Loads favorited location on Map View when accessory is tapped
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         print("accessory tapped")
         let myDict = locations[indexPath.row]
@@ -94,7 +119,5 @@ class locationTableViewController: UITableViewController{
         NSNotificationCenter.defaultCenter().postNotificationName("history", object: myDict)
         self.tabBarController?.selectedIndex = 0
     }
-    
-    
     
 }
